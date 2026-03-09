@@ -249,7 +249,7 @@
         localStorage.setItem('batches_left', batchesLeft);
         status.innerHTML = `<i class="fas fa-check-circle"></i> Batch Completed!`;
         if (batchesLeft <= 0) startCooldown(30 * 60, true);
-        else startCooldown(2 * 60, false);
+        else startCooldown( * 60, false);
     }
 
     function startCooldown(seconds, isLong) {
@@ -267,7 +267,7 @@
             if (remaining > 0) runTimer(parseInt(endTime), isLong);
             else { 
                 localStorage.removeItem('cooldown_end'); 
-                if(isLong) { batchesLeft = 5; localStorage.setItem('batches_left', 5); }
+                if(isLong) { batchesLeft = 500; localStorage.setItem('batches_left', 5); }
                 updateButtonText();
             }
         }
